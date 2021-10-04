@@ -4,7 +4,7 @@
 	<img src="https://static.wikia.nocookie.net/fantendo/images/8/8b/149Dragonite.png/revision/latest?cb=201509110203199" alt="Dratini" width="175" Height="175">
 </p>
 
-<h3 align="center">IceTube</h3>
+<h3 align="center">Pokedex</h3>
 
 <p align="center">
     <i>Pokemon has always been my passion. That is why I am looking forwards to combine two things that I like pokemon and programming.</i>
