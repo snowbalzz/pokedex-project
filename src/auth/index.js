@@ -12,6 +12,9 @@ const userMapper = claims => ({
    picture: claims.picture
 });
 
+/**
+ * This is to control google auth
+ */
 export const initAuth = (useRedirect = false) => {
    const auth = firebase.auth();
 

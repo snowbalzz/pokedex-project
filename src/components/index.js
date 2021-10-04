@@ -1,5 +1,9 @@
 import Auth from './Auth.svelte'
+import Nav from './Nav.svelte'
+import Button from './Button.svelte'
 
 export {
-    Auth
+    Auth,
+    Nav,
+    Button,
 }
