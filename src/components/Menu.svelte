@@ -26,8 +26,12 @@
     </div>
 </div>
 {#if isOpen}
-  <div class="flex flex-col text-right absolute border top-16 right-0 bg-red-500 z-50 rounded-lg p-4 text-white pl-32" use:clickOutside on:click_outside={handleClickOutside}>
+  <div class="flex flex-col text-right absolute border 
+  top-16 right-0 bg-red-500 z-50 rounded-lg p-4 text-white pl-32" 
+  use:clickOutside on:click_outside={handleClickOutside}> 
+
     <p class="text-white-500 " on:click={( ) => dispatch('confirmLogout')} >Logout</p>  
-  </div>
-{/if}
+
+</div>
+{/if}  
 </div>

@@ -16,7 +16,7 @@ user.subscribe((v) => (_user=v));
             <img class="w-8 h-8" src="images/logo.png" alt="" >
         </a>
     </div>
-
+     
     {#if _user}
         <Menu user={_user} on:confirmLogout={logout}/>
     {:else}
