@@ -24,6 +24,4 @@ export let disabled = false;
     .disabled{
         @apply opacity-50 pointer-events-none
     }
-
-
 </style>

@@ -1,6 +1,6 @@
 <script>
 import {url} from "@roxi/routify"
-import { Button } from "../components";
+import { Button, Menu } from "../components";
 import { user, loginWithGoogle, logout } from "../components/Auth.svelte";
 
 let _user;
@@ -13,13 +13,13 @@ user.subscribe((v) => (_user=v));
 <main class="w-full flex justify-between items-center bg-red-500 p-4 text-white">
     <div class = "bg-white p-1 rounded-full">
         <a href={$url('../')}>
-            <img class="w-8 h-8" src="images/logo.png" alt="" >            
+            <img class="w-8 h-8" src="images/logo.png" alt="" >
         </a>
     </div>
 
     {#if _user}
-    <Button title='Logout' white on:click={logout} />
+        <Menu user={_user} on:confirmLogout={logout}/>
     {:else}
-    <Button title='Log in with Google' white on:click={loginWithGoogle} />
+        <Button title='Log in with Google' white on:click={loginWithGoogle} />
     {/if}
 </main>
