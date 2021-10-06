@@ -14,17 +14,12 @@
   const getRandomPokemons = async () =>{
     list = new Array();
     isLoading = true;
-
-    for (let i = 0; i < 5; i++) {
+    
+    for (let i = 0; i < 8; i++) {
       let randomId = random(0, 856);
-      await getPokemonById(randomId)
-        .then((pokemon) => { 
-            list.push({id: randomId, ...pokemon})
-            addPokemonToStore(pokemon);
-        })
-        .catch((err) =>{
-          console.log(err); 
-        })
+        const pokemon = await getPokemonById(randomId);
+        list.push({id: randomId, ...pokemon})
+        addPokemonToStore(pokemon);
     }
     isLoading = false;
   }
@@ -55,14 +50,15 @@
   }
 
   getRandomPokemons();
+  // getOrignalPokemon();
 </script>
 
 <main >
-  <div class="w-full grid grid-cols-1 md:grid-cols-1 gap-3 px-6 mt-3">
+  <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-3 px-6 mt-3">
     {#if isLoading}
       <Loading />
     {:else if !list.length}
-      <p>No results!</p>
+      <p>We are poke-gone!</p>
     {:else}
       {#each list as pokemon}
         <ListItem {pokemon} />
