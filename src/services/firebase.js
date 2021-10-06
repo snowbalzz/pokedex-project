@@ -26,3 +26,20 @@ export function CREATE_USER_COLLECTION(userId){
   })
 }
 
+export function GET_USER_DOCUMENT(userId){
+  return new Promise((resolve, reject) => {
+    let userRef = firebase.firestore().collection(COLLECTION_USERS).doc(userId)
+  
+    userRef
+      .get()
+      .then((userDoc)=>{
+        if (userDoc.exists) {
+          resolve(userDoc.data())
+        }
+      })
+      .catch((error) => {
+        reject(error)
+      })
+  })
+}
+
