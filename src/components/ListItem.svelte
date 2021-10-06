@@ -10,7 +10,7 @@
     <img src={pokemon.sprites.normal} alt={pokemon.name} class="object-fill" />
   </div>
   <div class="col-span-1" on:click>
-    <p class="text-xs text-gray-500">{pokemon.national_number}</p>
+    <p class="text-xs text-gray-500"># {pokemon.national_number}</p>
     <p class="text-lg font-bold my-1">{pokemon.name}</p>
     <div class="list-item-type flex">
       {#each pokemon.type as type}
