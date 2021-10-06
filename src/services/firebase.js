@@ -43,3 +43,23 @@ export function GET_USER_DOCUMENT(userId){
   })
 }
 
+
+export function GET_POKEMON_BY_ID(id){
+  return new Promise((resolve, reject) => {
+    firebase
+      .database()
+      .ref()
+      .child(DATABASE_NAME)
+      .child(id)
+      .get()
+      .then(function (snapshot) {
+        if (snapshot.exists()){
+          resolve(snapshot.val())
+        }
+      })
+      .catch((err) => {
+        reject(err)
+      })
+  })
+}
+

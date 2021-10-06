@@ -8,7 +8,7 @@
       GET_USER_DOCUMENT(v.id)
         .then((data) => {
           if (data) {
-            console.log(data);
+           
             userStore.set("favorites", data.favorites);
           }
         })
