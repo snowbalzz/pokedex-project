@@ -1,4 +1,5 @@
 import { GET_POKEMON_BY_ID } from "./firebase"
+import { SET_FAVORITE_TO_USER } from "./firebase"
 
 export function getPokemonById (id) {
   return new Promise( async (resolve, reject) => {
@@ -16,3 +17,13 @@ export function getPokemonById (id) {
   })
 }
 
+export function setPokemonAsFavorite(pokemonNationalNumber, userId) {
+  return new Promise(async (resolve, reject) => {
+    await SET_FAVORITE_TO_USER(pokemonNationalNumber, userId)
+      .then((data) => {
+        console.log(data);
+        resolve(data)
+      })
+      .catch((err) => reject(err));
+  });
+}

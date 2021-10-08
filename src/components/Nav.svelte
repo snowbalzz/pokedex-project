@@ -11,10 +11,12 @@ user.subscribe((v) => (_user=v));
 
 
 <main class="w-full flex justify-between items-center bg-red-500 p-4 text-white">
-    <div class = "bg-white p-1 rounded-full">
-        <a href={$url('../')}>
-            <img class="w-8 h-8" src="images/logo.png" alt="" >
-        </a>
+    <div>
+        <div class = "bg-white p-1 rounded-full">
+            <a href={$url('../')}>
+                <img class="w-8 h-8" src="images/logo.png" alt="" >
+            </a>
+        </div>
     </div>
     {#if _user}
         <Menu user={_user} on:confirmLogout={logout}/>

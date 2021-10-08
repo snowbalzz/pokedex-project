@@ -829,7 +829,7 @@
       "national_number": "029",
       "evolution": null,
       "sprites": {
-        "normal": "https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/nidoran♀.png",
+        "normal": "https://img.pokemondb.net/sprites/bank/normal/nidoran-f.png",
         "large": "https://img.pokemondb.net/artwork/nidoran♀.jpg",
         "animated": "https://img.pokemondb.net/sprites/black-white/anim/normal/nidoran♀.gif"
       },
@@ -890,7 +890,7 @@
       "national_number": "032",
       "evolution": null,
       "sprites": {
-        "normal": "https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/nidoran♂.png",
+        "normal": "https://img.pokemondb.net/sprites/bank/normal/nidoran-m.png",
         "large": "https://img.pokemondb.net/artwork/nidoran♂.jpg",
         "animated": "https://img.pokemondb.net/sprites/black-white/anim/normal/nidoran♂.gif"
       },
@@ -2184,7 +2184,7 @@
       "national_number": "083",
       "evolution": null,
       "sprites": {
-        "normal": "https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/farfetch'd.png",
+        "normal": "https://img.pokemondb.net/sprites/bank/normal/farfetchd.png",
         "large": "https://img.pokemondb.net/artwork/farfetch'd.jpg",
         "animated": "https://img.pokemondb.net/sprites/black-white/anim/normal/farfetch'd.gif"
       },
@@ -3115,7 +3115,7 @@
       "national_number": "122",
       "evolution": null,
       "sprites": {
-        "normal": "https://img.pokemondb.net/sprites/omega-ruby-alpha-sapphire/dex/normal/mr.-mime.png",
+        "normal": "https://img.pokemondb.net/sprites/bank/normal/mr-mime.png",
         "large": "https://img.pokemondb.net/artwork/mr.-mime.jpg",
         "animated": "https://img.pokemondb.net/sprites/black-white/anim/normal/mr.-mime.gif"
       },

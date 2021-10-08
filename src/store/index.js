@@ -1,3 +1,5 @@
+
+   
 import { writable } from 'svelte/store';
 
 function createMapStore(initial) {
@@ -11,4 +13,5 @@ function createMapStore(initial) {
 }
 
 export const pokemonStore = createMapStore({});
+
 export const userStore = createMapStore({});

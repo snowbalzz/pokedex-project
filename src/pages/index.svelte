@@ -1,5 +1,5 @@
 <script>
-
+  import { goto } from "@roxi/routify";
   import { random  } from "lodash"
   import { getPokemonById } from "../services"
   import {addPokemonToStore} from "../components/Pokemon.svelte"
@@ -11,17 +11,21 @@
   //Checking if there are double in the JSON FILE
   let checkDoubles = 1;
 
-  const getRandomPokemons = async () =>{
+  const getRandom = async () =>{
     list = new Array();
     isLoading = true;
     
     for (let i = 0; i < 8; i++) {
       let randomId = random(0, 856);
-        const pokemon = await getPokemonById(randomId);
-        list.push({id: randomId, ...pokemon})
-        addPokemonToStore(pokemon);
+      const pokemon = await getPokemonById(randomId);
+      list.push({id: randomId, ...pokemon})
+      addPokemonToStore(pokemon);
     }
     isLoading = false;
+  }
+
+  const goToPokemon = (id) => {
+    $goto(`/pokemon/${id}`);
   }
 
   /**
@@ -38,7 +42,7 @@
             return
           } else {
             checkDoubles = pokemon.national_number;
-            list.push({id: randomId, ...pokemon})
+            list.push({id: i, ...pokemon})
             addPokemonToStore(pokemon);
           }
         })
@@ -48,9 +52,10 @@
     }
     isLoading = false;
   }
+  
 
-  getRandomPokemons();
-  // getOrignalPokemon();
+  // getRandomPokemons();
+  getOrignalPokemon();
 </script>
 
 <main >
@@ -61,7 +66,7 @@
       <p>We are poke-gone!</p>
     {:else}
       {#each list as pokemon}
-        <ListItem {pokemon} />
+        <ListItem {pokemon} on:click={goToPokemon(pokemon.national_number)}/>
       {/each}
     {/if}
   </div>
