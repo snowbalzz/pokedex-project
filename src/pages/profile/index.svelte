@@ -1,35 +1,21 @@
-
-
 <script>
-  import { user } from '../../components/Auth.svelte';
-  import { userStore } from "../../store";
-  import {setPokemonAsFavorite} from '../../services' 
+    import { user, logout, loginWithGoogle } from "../../components/Auth.svelte";
+    import { Button } from "../../components";
+    let _user;
+    user.subscribe((u) => (_user = u));
+  </script>
   
-  let pokemon;
-  let _user;
-  let favorites = [];
-
-  user.subscribe((v) => (_user=v));
-  userStore.subscribe((s) => {
-    favorites = s.favorites;
-});
-
-console.log(favorites);
-
-  
-
-  const setNewFavorite = async () => {
-    await setPokemonAsFavorite(pokemon.national_number, _user.id)
-      .then((data) => {
-        console.log(data);
-        userStore.set("favorites", data);
-      })
-      .catch((err) => console.log(err));
-  };
-
-
-</script>
-
-<main>
-    
-</main>
+  <main>
+    <div class="flex flex-col items-center justify-center my-8">
+      {#if _user}
+        <div class="w-32 h-32 rounded-full overflow-hidden mb-6">
+          <img src={_user.picture} alt="user thumb" class="w-32 h-32" />
+        </div>
+        <p class="text-2xl mb-4">{_user.name}</p>
+        <Button on:click={logout} title="Logout" red />
+      {:else}
+        <p class="mb-4">You are not logged in</p>
+        <Button on:click={loginWithGoogle} title="Sign In with Google" red />
+      {/if}
+    </div>
+  </main>

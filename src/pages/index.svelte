@@ -3,7 +3,9 @@
   import { random  } from "lodash"
   import { getPokemonById } from "../services"
   import {addPokemonToStore} from "../components/Pokemon.svelte"
-  import {Loading, ListItem} from '../components'
+  import ListItem from '../components/ListItem.svelte'
+  import Loading from '../components/Loading.svelte'
+  import Autocomplete from '../components/Autocomplete.svelte'
 
   let list = [];
   let isLoading = false;
@@ -59,6 +61,12 @@
 </script>
 
 <main >
+  <div class = 'grid-cols-1 gap-3 px-6 mt-16 mb-32' >
+    <div class="text-center mb-5 text-5xl font-bold">
+      <h1>Poke Serach</h1>
+    </div>
+    <Autocomplete />
+  </div>
   <div class="w-full grid grid-cols-1 md:grid-cols-2 gap-3 px-6 mt-3">
     {#if isLoading}
       <Loading />

@@ -64,6 +64,20 @@ export function GET_POKEMON_BY_ID(id){
   })
 }
 
+export function GET_POKEMON_BY_NAME(name){
+  return new Promise((resolve, reject) => {
+    firebase
+      .database()
+      .ref()
+      .child(DATABASE_NAME)
+      .orderByChild('name')
+      .equalTo(name)
+      .on("value", function (snapshot) {
+        resolve(snapshot.val())
+      })
+  })
+}
+
 export function GET_POKEMON_BY_NATIONAL_NUMBER(id) {
   return new Promise((resolve) => {
     firebase
