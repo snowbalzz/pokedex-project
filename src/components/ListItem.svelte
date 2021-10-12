@@ -43,12 +43,12 @@
   </div>
   <div class="col-span-1 flex items-start justify-end">
     <!-- <Favorite /> --> 
-    {#if isLoading}
+    <!-- {#if isLoading}
     <Loading />
     {:else if favorites && favorites.includes(pokemon.national_number)}
       <Button title="Remove" red on:click={setNewFavorite}/>
       {:else}
       <Button title="Favorite" red on:click={setNewFavorite}/>
-    {/if}
+    {/if} -->
   </div>
 </div>

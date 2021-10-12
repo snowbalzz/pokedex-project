@@ -1,8 +1,20 @@
 <script>
     import { user, logout, loginWithGoogle } from "../../components/Auth.svelte";
     import { Button } from "../../components";
+
+    import { userStore } from "../../store";
+
+    let pokemon;
     let _user;
+    let favorites = [];
+
     user.subscribe((u) => (_user = u));
+    userStore.subscribe((s) => {
+    favorites = s.favorites;
+    console.log(favorites);
+    });
+
+
   </script>
   
   <main>
