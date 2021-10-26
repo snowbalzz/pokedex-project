@@ -61,14 +61,11 @@
 </script>
 
 <main >
-  <div class = 'mt-8 mb-16' >
-    <div class="text-center mb-5 text-5xl font-bold">
-      <h1>1st Generation Pokedex</h1>
-    </div>
+  <div class = 'mt-8 mb-16' > 
   </div>
-  <div class="w-full grid grid-cols-1 md:grid-cols-2  lg:grid-cols-5 gap-3 px-6 mt-3">
+  <div class="w-full grid grid-cols-1 md:grid-cols-2  lg:grid-cols-4 gap-3 px-6 mt-3">
     {#if isLoading}
-    <div class="">
+    <div class="grid-cols-2">
       <Loading />
     </div>
     {:else if !list.length}

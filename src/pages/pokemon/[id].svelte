@@ -24,7 +24,7 @@
   let pokemonHeight;
   $: abilitiesArray = [];
 
-  function evolutionChain() {
+  export function evolutionChain() {
     const fetchEvolution = async () => {
       await getChain();
     };
@@ -42,7 +42,7 @@
     fetchEvolution();
   }
 
-  function getDataFromPokeApi() {
+  export function getDataFromPokeApi() {
     const fetchPokemons = async () => {
       await getPokemon();
     };
@@ -66,23 +66,23 @@
 
     fetchPokemons();
   }
-
-  evolutionChain();
+  
   getDataFromPokeApi();
+  evolutionChain();
 
   user.subscribe((v) => (_user = v));
   userStore.subscribe((s) => {
     favorites = s.favorites;
   });
 
-  // const setNewFavorite = async () => {
-  //   await setPokemonAsFavorite(pokemon.national_number, _user.id)
-  //     .then((data) => {
-  //       console.log(data);
-  //       userStore.set("favorites", data);
-  //     })
-  //     .catch((err) => console.log(err));
-  // };
+  const setNewFavorite = async () => {
+     await setPokemonAsFavorite(pokemon.national_number, _user.id)
+       .then((data) => {
+         console.log(data);
+         userStore.set("favorites", data);
+       })
+       .catch((err) => console.log(err));
+  };
 
   if (!pokemon) {
     fetchPokemon($params.id)
@@ -92,41 +92,41 @@
 </script>
 
 <main>
-  <div id="pokemonEl">Namej:{pokemonName}</div>
-  <div id="pokemonEl">Height:{pokemonHeight}</div>
-
-  {#each abilitiesArray as ability}
-    <div>
-      Ability:{ability.name}
-    </div>
-  {/each}
-  <!-- <div class="cursor-pointer p-5 rounded-xl border bg-whiterounded-lg flex px-4 row-6 shadow-lg my-16 bg-white">
+  <div class="cursor-pointer p-5 rounded-xl border bg-whiterounded-lg flex px-4 row-6 shadow-lg my-16 bg-white">
     <div class="my-2">
       {#if pokemon}
-        {#if pokemon.sprites}
-          <div class="flex items-center justify-center mb-8">
-            <img src={pokemon.sprites.large} alt={pokemon.name} />
-          </div>
-        {/if}
-        <div class="flex flex-col items-center justify-center">
-          <h1 class="text-4xl font-medium mb-2">{pokemon.name}</h1>
-          <p class="text-gray-500"># {pokemon.national_number}</p>
-          {#if pokemon && pokemon.type}
-            <div class="flex my-2">
-              {#each pokemon.type as type}
-                <Label {type} />
-              {/each}
+      {#if pokemon.sprites}
+      <div class="flex items-center justify-center mb-8">
+        <img src={pokemon.sprites.large} alt={pokemon.name} />
+      </div>
+      {/if}
+      <div class="flex flex-col items-center justify-center">
+        <h1 class="text-4xl font-medium mb-2">{pokemon.name}</h1>
+        <p class="text-gray-500"># {pokemon.national_number}</p>
+        {#if pokemon && pokemon.type}
+        <div id="pokemonEl">Namej:{pokemonName}</div>
+          <div id="pokemonEl">Height:{pokemonHeight}</div>
+        
+          {#each abilitiesArray as ability}
+            <div>
+              Ability:{ability.name}
             </div>
-          {/if}
-          {#if favorites && favorites.includes(pokemon.national_number)}
-          <Button title="Remove" red on:click={setNewFavorite}/>
-          {:else}
-          <Button title="Favorite" red on:click={setNewFavorite}/>
-          {/if}
+        {/each}
+        <div class="flex my-2">
+          {#each pokemon.type as type}
+          <Label {type} />
+          {/each}
         </div>
+        {/if}
+        {#if favorites && favorites.includes(pokemon.national_number)}
+        <Button title="Remove" red on:click={setNewFavorite}/>
+        {:else}
+        <Button title="Favorite" red on:click={setNewFavorite}/>
+        {/if}
+      </div>
       {:else}
-        <Loading />
+      <Loading />
       {/if}
     </div>
-  </div> -->
+  </div> 
 </main>

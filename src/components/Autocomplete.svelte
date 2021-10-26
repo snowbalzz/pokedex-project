@@ -3,13 +3,15 @@
     import { GET_POKEMON_BY_NAME } from "../services/firebase";
     import ListItem from '../components/ListItem.svelte'
     import Loading from '../components/Loading.svelte'
-
+  import getDataFromPokeApi from '../pages/pokemon/[id].svelte'
+  
     let isLoading = false;
     let search = undefined;
     let result = [];
 
     const goToPokemon = function ({ national_number }) {
       $goto(`/pokemon/${national_number}`);
+      getDataFromPokeApi();
       search = undefined;
     };
 

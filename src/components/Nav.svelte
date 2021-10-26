@@ -19,12 +19,6 @@
                 </div>
             </div>
         </a>
-        <div class="flex items-center pl-2 border-b p-2">
-            <div class="flex flex-col py-6 space-y-1 border-b border-white">
-                
-            </div>
-            <Autocomplete />
-        </div>
         <div class="overflow-y-auto overflow-x-hidden flex-grow ">
             <ul class="flex flex-col py-6 space-y-1 border-b border-white">
                 <li>
